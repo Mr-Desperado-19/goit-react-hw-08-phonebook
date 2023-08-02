@@ -1,6 +1,6 @@
-import { Navigation } from '../Navigation/Navigation';
-import { UserMenu } from '../UserMenu/UserMenu';
-import { AuthNav } from '../AuthNav/AuthNav';
+import { Navigation } from '../navigation/Navigation';
+import { UserMenu } from '../userMenu/UserMenu';
+import { AuthNav } from '../authNav/AuthNav';
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from 'redux/auth/selectors';
 import { Flex, Box, Heading, Spacer } from '@chakra-ui/react';
