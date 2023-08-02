@@ -6,7 +6,7 @@ import { ContactEditor } from 'components/ContactEditor/ContactEditor.js';
 import { Filter } from 'components/Filter/Filter.jsx';
 import { ContactList } from 'components/Contacts/ContactList.jsx';
 import { selectContacts, selectIsLoading } from 'redux/contacts/selectors';
-import { Loader } from '../components/Loader/Loader';
+import { Loader } from '../components/Loader/MyLoader';
 
 export default function Contacts() {
   const dispatch = useDispatch();
