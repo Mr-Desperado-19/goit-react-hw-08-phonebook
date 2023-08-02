@@ -20,6 +20,13 @@ export const ContactEditor = () => {
 
   const toast = useToast();
 
+  const checkContact = values => {
+    const contactsArray = contacts.filter(
+      contact => contact.name.toLowerCase().trim() === values.name.toLowerCase().trim()
+    );
+    return contactsArray.length !== 0;
+  };
+
   return (
     <Flex bg="gray.100" align="center" justify="center">
       <Box bg="white" p={6} rounded="md" w={64}>
@@ -33,13 +40,10 @@ export const ContactEditor = () => {
               name: name,
               number: number,
             };
-            const contactsArray = contacts.filter(
-              contact => contact.name === text.name
-            );
 
-            if (contactsArray.length !== 0) {
+            if (checkContact(text)) {
               toast({
-                title: `${text.name} is alredy in contacts`,
+                title: `${name} is already in contacts`,
                 status: 'error',
                 isClosable: true,
                 position: 'top',
@@ -79,8 +83,8 @@ export const ContactEditor = () => {
                   />
                 </FormControl>
 
-                <Button type="submit" colorScheme="teal" width="full">
-                  Add
+                <Button type="submit" colorScheme="teal">
+                  Add contact
                 </Button>
               </VStack>
             </form>

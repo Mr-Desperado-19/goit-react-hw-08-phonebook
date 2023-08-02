@@ -34,7 +34,7 @@ export default function Contacts() {
         {contacts.length === 0 && (
           <Box pt="50px">
             <Text fontSize="4xl" textAlign="center">
-              No contacts yet
+              There are no contacts yet
             </Text>
             <Text fontSize="4xl" textAlign="center">
               Create your first contact in the form
