@@ -10,7 +10,7 @@ import {
 
 import { GiSmartphone } from 'react-icons/gi';
 import { GrEdit } from 'react-icons/gr';
-import { UpdateModal } from 'components/modalWindow/UpdateModal';
+import { UpdateModal } from 'components/modalWindow/MyUpdateModal';
 import { MdClose } from 'react-icons/md';
 import { deleteContact } from 'redux/contacts/operations';
 

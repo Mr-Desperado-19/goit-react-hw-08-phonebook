@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { List, ListItem } from '@chakra-ui/react';
 
 import { selectContacts, selectFilter } from 'redux/contacts/selectors';
-import { ContactItem } from './ContactItem';
+import { ContactItem } from './MyContactItem';
 
 export const ContactList = () => {
   const contacts = useSelector(selectContacts);

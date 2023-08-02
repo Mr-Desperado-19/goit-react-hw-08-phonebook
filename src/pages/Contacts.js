@@ -4,7 +4,7 @@ import { Flex, Box, Text } from '@chakra-ui/react';
 import { fetchContacts } from 'redux/contacts/operations.js';
 import { ContactEditor } from '../components/contactEditor/MyContactEditor.js';
 import { Filter } from '../components/filter/MyFilter.jsx';
-import { ContactList } from '../components/contacts/ContactList.jsx';
+import { ContactList } from '../components/contacts/MyContactList.jsx';
 import { selectContacts, selectIsLoading } from 'redux/contacts/selectors';
 import { Loader } from '../components/loader/MyLoader.jsx';
 

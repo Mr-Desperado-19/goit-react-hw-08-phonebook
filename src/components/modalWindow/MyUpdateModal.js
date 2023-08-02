@@ -6,7 +6,7 @@ import {
   ModalBody,
   ModalCloseButton,
 } from '@chakra-ui/react';
-import { UpdateForm } from 'components/updateForm/UpdateForm';
+import { UpdateForm } from 'components/updateForm/MyUpdateForm';
 
 export const UpdateModal = ({ isOpen, onClose, contact }) => {
   return (
