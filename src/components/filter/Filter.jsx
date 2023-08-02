@@ -1,12 +1,14 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { selectFilter } from 'redux/selectors';
-import {
-  StyledFilterTextWrap,
-  StyledFiltrWrap,
-  StyledInput,
-} from './Filter.styled';
 import { MdPersonSearch } from 'react-icons/md';
-import { setFilter } from 'redux/filtersSlice';
+import { selectFilter } from 'redux/contacts/selectors';
+import { setFilter } from 'redux/contacts/filtersSlice';
+import {
+  Heading,
+  Flex,
+  Input,
+  InputGroup,
+  InputLeftElement,
+} from '@chakra-ui/react';
 
 export const Filter = () => {
   const filter = useSelector(selectFilter);
@@ -16,17 +18,23 @@ export const Filter = () => {
     dispatch(setFilter(evt.currentTarget.value));
   };
   return (
-    <StyledFiltrWrap>
-      <b>Find contacts by name</b>
-      <StyledFilterTextWrap>
-        <StyledInput
+    <Flex flexDirection="column" gap="20px">
+      <Heading as="h4" size="md" textAlign="center">
+        Find contacts by name
+      </Heading>
+      <InputGroup size="md">
+        <Input
+          placeholder="Search name..."
+          size="md"
           type="text"
           value={filter}
           onChange={changeFilter}
-          placeholder="Search name..."
+          width={{ base: '350px', lg: '550px' }}
         />
-        <MdPersonSearch />
-      </StyledFilterTextWrap>
-    </StyledFiltrWrap>
+        <InputLeftElement pointerEvents="none">
+          <MdPersonSearch color="gray.400" />
+        </InputLeftElement>
+      </InputGroup>
+    </Flex>
   );
 };

@@ -1,25 +1,12 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import {
-  StyledContactList,
-  StyledContactText,
-  StyledContactsItem,
-  StyledDeleteBtn,
-  StyledNumber,
-} from './ContactList.styled';
-import { MdClose } from 'react-icons/md';
-import { selectContacts, selectFilter } from 'redux/selectors';
-import { deleteContact, fetchContacts } from 'redux/operations';
-import { GiSmartphone } from 'react-icons/gi';
+import { useSelector } from 'react-redux';
+import { List, ListItem } from '@chakra-ui/react';
+
+import { selectContacts, selectFilter } from 'redux/contacts/selectors';
+import { ContactItem } from './ContactItem';
 
 export const ContactList = () => {
   const contacts = useSelector(selectContacts);
   const filter = useSelector(selectFilter);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
 
   const normalizedFilter = filter.toLowerCase();
   const filtredContacts = contacts.filter(
@@ -27,24 +14,23 @@ export const ContactList = () => {
       contact.name && contact.name.toLowerCase().includes(normalizedFilter)
   );
 
-  const handleDelete = id => dispatch(deleteContact(id));
-
   return (
-    <StyledContactList>
+    <List spacing={3} pt="20px">
       {filtredContacts.map(contact => {
         return (
-          <StyledContactsItem key={contact.id}>
-            <StyledContactText>{contact.name}</StyledContactText>
-            <StyledNumber>
-              <GiSmartphone />
-              {contact.phone}
-            </StyledNumber>
-            <StyledDeleteBtn onClick={() => handleDelete(contact.id)}>
-              <MdClose />
-            </StyledDeleteBtn>
-          </StyledContactsItem>
+          <ListItem
+            key={contact.id}
+            w="450px"
+            borderColor="teal"
+            borderWidth="1px"
+            borderRadius="8px"
+            p="8px"
+            width={{ base: '350px', lg: '550px' }}
+          >
+            <ContactItem contact={contact} />
+          </ListItem>
         );
       })}
-    </StyledContactList>
+    </List>
   );
 };
