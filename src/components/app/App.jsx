@@ -6,7 +6,7 @@ import { Layout } from '../layout/Layout';
 import { PrivateRoute } from '../privateRoute/PrivateRoute';
 import { RestrictedRoute } from '../RestrictedRoute';
 import { refreshUser } from 'redux/auth/operations';
-import { Loader } from '../loader/Loader';
+import { Loader } from '../loader/MyLoader';
 import { useAuth } from 'hooks';
 import { NotFound } from 'pages/NotFound';
 
